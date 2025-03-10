@@ -31,6 +31,17 @@
             position: relative;
             z-index: 10;
         }
+        .dynamicTip img {
+            font-size: 40px;
+            width: 60px;
+            height: auto;
+            animation: pulse 1.5s infinite alternate;
+            padding: 20px;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
         .message{
             font-size: 24px;
             margin-top: 10px;
@@ -45,6 +56,42 @@
             position: relative;
             display: inline-block;
         }
+        .title::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 6px;
+            background: repeating-linear-gradient(
+                    90deg,
+                    #1e90ff 0%,
+                    #1e90ff 10%,
+                    transparent 10%,
+                    transparent 20%
+            );
+            background-size: 40px 100%;
+            position: absolute;
+            padding-bottom: 60px;
+            bottom: 10px;
+            left: 5px;
+            animation: loadingBar 20s infinite linear,
+            moveIcons 1s infinite linear;
+        }
+        @keyframes loadingBar {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+        @keyframes moveIcons {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -10px 0;
+            }
+        }
         .button {
             display: inline-block;
             margin-top: 20px;
@@ -56,6 +103,11 @@
             border: none;
             border-radius: 5px;
             text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .button:hover {
+            background-color: #0f70d3;
+            transform: scale(1.1);
         }
     </style>
 </head>
