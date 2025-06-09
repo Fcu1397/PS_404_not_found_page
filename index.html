@@ -19,17 +19,32 @@
             overflow: hidden;
             font-family: Arial, sans-serif;
         }
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch; /* 讓 LOGO 和右邊內容等高 */
             width: 100%;
-            height: 100%;
-            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: 50px;
         }
-        .container {
-            position: relative;
-            z-index: 10;
+
+        .logo {
+            flex: 0 0 auto;
+            display: flex;
+            height: 100%; /* 高度與右邊內容一致 */
+            margin-top: 20px; /* 與頁面頂部對齊 */
+        }
+
+        .logo svg {
+            width: 300px; /* 自動調整寬度 */
+            height: 100%; /* 高度填滿 LOGO 區域 */
+        }
+
+        .content {
+            flex: 1;
+            text-align: left;
+            margin-left: 20px;
         }
         .dynamicTip img {
             font-size: 40px;
@@ -109,30 +124,90 @@
             background-color: #0f70d3;
             transform: scale(1.1);
         }
+        .ball {
+            width: 50px;
+            height: 50px;
+            background-color: #0f70d3;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 <body>
-<div class="header">
-    <svg aria-hidden="true" focusable="false" class="shared-nav-ps-logo" width="50px" height="50px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" data-di-res-id="5faadd5a-2f6df553" data-di-rand="1741401051766">
-        <g>
-            <g>
-                <path d="M5.8,32.1C4.3,33.1,4.8,35,8,35.9c3.3,1.1,6.9,1.4,10.4,0.8c0.2,0,0.4-0.1,0.5-0.1v-3.4l-3.4,1.1
-       c-1.3,0.4-2.6,0.5-3.9,0.2c-1-0.3-0.8-0.9,0.4-1.4l6.9-2.4V27l-9.6,3.3C8.1,30.7,6.9,31.3,5.8,32.1z M29,17.1v9.7
-       c4.1,2,7.3,0,7.3-5.2c0-5.3-1.9-7.7-7.4-9.6C26,11,23,10.1,20,9.5v28.9l7,2.1V16.2c0-1.1,0-1.9,0.8-1.6C28.9,14.9,29,16,29,17.1z
-        M42,29.8c-2.9-1-6-1.4-9-1.1c-1.6,0.1-3.1,0.5-4.5,1l-0.3,0.1v3.9l6.5-2.4c1.3-0.4,2.6-0.5,3.9-0.2c1,0.3,0.8,0.9-0.4,1.4
-       l-10,3.7V40L42,34.9c1-0.4,1.9-0.9,2.7-1.7C45.4,32.2,45.1,30.8,42,29.8z" fill="#0070d1"></path>
-            </g>
-        </g>
-    </svg>
-</div>
-<div class="background"></div>
 <div class="container">
-    <div class="title">ㅇㅅㅇ 404 - not found (°ﾛ°٥)</div>
-    <div class="dynamicTip">
-        <img src="" alt="There aren't even any pictures here!">
+    <div class="content">
+        <div class="header">
+            <div class="logo">
+                <svg aria-hidden="true" focusable="false" class="shared-nav-ps-logo" width="50px" height="50px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" data-di-res-id="5faadd5a-2f6df553" data-di-rand="1741401051766">
+                    <g>
+                        <g>
+                            <path d="M5.8,32.1C4.3,33.1,4.8,35,8,35.9c3.3,1.1,6.9,1.4,10.4,0.8c0.2,0,0.4-0.1,0.5-0.1v-3.4l-3.4,1.1
+           c-1.3,0.4-2.6,0.5-3.9,0.2c-1-0.3-0.8-0.9,0.4-1.4l6.9-2.4V27l-9.6,3.3C8.1,30.7,6.9,31.3,5.8,32.1z M29,17.1v9.7
+           c4.1,2,7.3,0,7.3-5.2c0-5.3-1.9-7.7-7.4-9.6C26,11,23,10.1,20,9.5v28.9l7,2.1V16.2c0-1.1,0-1.9,0.8-1.6C28.9,14.9,29,16,29,17.1z
+            M42,29.8c-2.9-1-6-1.4-9-1.1c-1.6,0.1-3.1,0.5-4.5,1l-0.3,0.1v3.9l6.5-2.4c1.3-0.4,2.6-0.5,3.9-0.2c1,0.3,0.8,0.9-0.4,1.4
+           l-10,3.7V40L42,34.9c1-0.4,1.9-0.9,2.7-1.7C45.4,32.2,45.1,30.8,42,29.8z" fill="#0070d1"></path>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div class="content">
+                <div class="title">ㅇㅅㅇ 404 - not found (°ﾛ°٥)</div>
+                <div class="dynamicTip">
+                    <img src="" alt="There aren't even any pictures here!">
+                </div>
+                <div class="message">You have entered a realm that does not exist...</div>
+                <a href="https://www.playstation.com/zh-hant-tw/editorial/this-month-on-playstation/?smcid=pdc%3Azh-hant-tw%3Aprimary%20nav%3Amsg-news%3Aplaystation" class="button">Back to News</a>
+            </div>
+        </div>
     </div>
-    <div class="message">You have entered a realm that does not exist...</div>
-    <a href="https://www.playstation.com/zh-hant-tw/editorial/this-month-on-playstation/?smcid=pdc%3Azh-hant-tw%3Aprimary%20nav%3Amsg-news%3Aplaystation" class="button">Back to News</a>
 </div>
+<div class="ball" id="ball"></div>
 </body>
+<script>
+    const ball = document.getElementById('ball');
+    let ballX = window.innerWidth / 2;
+    let ballY = window.innerHeight / 2;
+    let velocityX = 2;
+    let velocityY = 2;
+    const ballRadius = 25; // 小球半徑
+    const bounceFactor = 5; // 彈力係數
+
+    function updateBallPosition() {
+        ballX += velocityX;
+        ballY += velocityY;
+
+        // 防止小球超出視窗邊界
+        if (ballX - ballRadius < 0 || ballX + ballRadius > window.innerWidth) {
+            velocityX = -velocityX;
+            ballX = Math.max(ballRadius, Math.min(ballX, window.innerWidth - ballRadius));
+        }
+        if (ballY - ballRadius < 0 || ballY + ballRadius > window.innerHeight) {
+            velocityY = -velocityY;
+            ballY = Math.max(ballRadius, Math.min(ballY, window.innerHeight - ballRadius));
+        }
+
+        ball.style.left = `${ballX - ballRadius}px`;
+        ball.style.top = `${ballY - ballRadius}px`;
+
+        requestAnimationFrame(updateBallPosition);
+    }
+
+    document.addEventListener('mousemove', (e) => {
+        const dx = e.pageX - ballX;
+        const dy = e.pageY - ballY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < ballRadius * 2) {
+            // 計算彈開的速度
+            const angle = Math.atan2(dy, dx);
+            velocityX = -Math.cos(angle) * bounceFactor;
+            velocityY = -Math.sin(angle) * bounceFactor;
+        }
+    });
+
+    updateBallPosition();
+</script>
 </html>
