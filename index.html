@@ -18,6 +18,7 @@
             text-align: center;
             overflow: hidden;
             font-family: Arial, sans-serif;
+            overflow-y: auto; /* 確保垂直方向有 Scrollbar */
         }
         .header {
             display: flex;
@@ -134,6 +135,36 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #1e90ff;
+            color: white;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo {
+                margin-bottom: 20px;
+            }
+
+            .content {
+                text-align: center;
+                margin-left: 0;
+            }
+
+            footer {
+                position: static;
+                margin-top: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -165,7 +196,10 @@
     </div>
 </div>
 <div class="ball" id="ball"></div>
-</body>
+<footer>
+    <p>&copy; 2025 PS 404 Not Found Page. All rights reserved.</p>
+    <p>Designed with ❤️ by PS Team</p>
+</footer>
 <script>
     const ball = document.getElementById('ball');
     let ballX = window.innerWidth / 2;
